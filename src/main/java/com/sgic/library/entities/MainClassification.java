@@ -25,7 +25,6 @@ public class MainClassification implements Serializable {
 	Long mclID;
 	String mclName;
 	
-	@JsonBackReference
 	@OneToMany( mappedBy = "mainClassification", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	private List<SubClassification> subClassification;
 

@@ -2,6 +2,8 @@ package com.sgic.library.entities;
 
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.io.Serializable;
 
 import javax.persistence.Entity;
@@ -23,6 +25,7 @@ public class SubClassification implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "mclID", nullable = false)
+	@JsonIgnore
 	MainClassification mainClassification;
 
 	public String getSbclId() {
