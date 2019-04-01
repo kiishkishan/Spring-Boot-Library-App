@@ -12,6 +12,7 @@ import com.sgic.library.repositories.BookRepositories;
 public class BookServiceImpl implements BookService {
 	@Autowired
 	BookRepositories bookRespository;
+	
 	public void saveBook(Book book) {
 		bookRespository.save(book);
 	}

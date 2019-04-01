@@ -13,8 +13,18 @@ public class MainClassificationImpl implements MainClassificationService {
 
 	@Autowired
 	MainClassificationRepositories mclRepositories;
+	
 	public void saveMCL(MainClassification mcl) {
 		mclRepositories.save(mcl);
 	}
+
+	@Override
+	public MainClassification findMclById(long id) {
+		return mclRepositories.findById(id);
+	}
+
+	
+
+	
 	
 }
