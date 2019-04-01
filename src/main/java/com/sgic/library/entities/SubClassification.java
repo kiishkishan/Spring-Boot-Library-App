@@ -20,6 +20,7 @@ public class SubClassification implements Serializable {
 	private String sbclId;
 	private String sbclName;
 	
+	
 	@ManyToOne
 	@JoinColumn(name = "mclID", nullable = false)
 	MainClassification mainClassification;

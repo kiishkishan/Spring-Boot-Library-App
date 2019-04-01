@@ -2,11 +2,14 @@ package com.sgic.library.entities;
 
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.io.Serializable;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +25,8 @@ public class MainClassification implements Serializable {
 	Long mclID;
 	String mclName;
 	
-	@OneToMany(mappedBy = "mainClassification", cascade = {CascadeType.ALL})
+	@JsonBackReference
+	@OneToMany( mappedBy = "mainClassification", cascade = {CascadeType.ALL}, fetch = FetchType.EAGER)
 	private List<SubClassification> subClassification;
 
 	public Long getMclID() {

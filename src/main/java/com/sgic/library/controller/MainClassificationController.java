@@ -1,5 +1,7 @@
 package com.sgic.library.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.sgic.library.entities.Book;
 import com.sgic.library.entities.MainClassification;
 import com.sgic.library.services.MainClassificationService;
 
@@ -27,6 +30,12 @@ public class MainClassificationController {
 		mclService.saveMCL(mcl);
 		return HttpStatus.CREATED;
 
+	}
+	
+	
+	@GetMapping("/findallmcl")
+	public List<MainClassification> findAll() {
+		return mclService.getAllMcl();
 	}
 	
 	@GetMapping("/getmclbyid/{id}")
